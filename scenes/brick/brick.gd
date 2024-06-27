@@ -29,7 +29,7 @@ func hit(damage: int) -> void:
 	level -= damage
 	if(level <= 0):
 		Globals.player_score += value
-		print(Globals.player_score)
+		print('player score', Globals.player_score)
 		queue_free()
 	else:
 		change_color()

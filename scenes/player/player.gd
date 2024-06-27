@@ -6,10 +6,6 @@ const IS_PADDLE: bool = true
 
 @export var speed: int
 
-func _ready() -> void:
-	var collision: CollisionShape2D = get_node("$CollisionShape2D")
-	#Globals.player_width = collision.shape.length
-
 func _process(_delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
 	
