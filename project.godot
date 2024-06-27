@@ -20,6 +20,7 @@ Globals="*res://globals/globals.gd"
 
 [debug]
 
+settings/stdout/print_fps=true
 gdscript/warnings/unassigned_variable=2
 gdscript/warnings/untyped_declaration=2
 gdscript/warnings/unsafe_property_access=2

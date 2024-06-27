@@ -18,6 +18,7 @@ Game #2-a
 - Add a ball that will bounce off of the paddle, walls, and ceiling.
 - Add square game objects (bricks) into the top of the game space. (The original game had eight rows of 16 bricks each, though you can change the number of bricks depending on the size of the game space)
 - Enable the ball to bounce off of the bricks. When the ball bounces, the brick should disappear. 
+- Breaking a brick should add to the player’s score.
 - The ball’s speed should increase as bricks are broken.
 
 
@@ -32,7 +33,6 @@ Game #2-a
 
 **Goals:**
 
-- Breaking a brick should add to the player’s score.
 - The score should be displayed, as well as a life counter. The player starts with three lives. If the player misses the ball, a life should be subtracted. When all lives are used, the game ends.
 
 **Stretch Goals:**
@@ -41,6 +41,6 @@ Game #2-a
 
 **Personal Goals:**
 
-- Staticly type **everything** and don't let residual code lingering.
+- Static type **everything** and don't let residual code lingering.
 - Create (at least) 10 lvls
 - Add power ups that affect the game. They should be dropped upen breaking a brick. Some examples: 1UP, Widder Paddle, Faster and stronger ball, Multiple balls
