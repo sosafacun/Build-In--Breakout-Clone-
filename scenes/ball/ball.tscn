@@ -55,7 +55,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"bot-top",
-"speed": 30.0
+"speed": 45.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"left-right",
-"speed": 30.0
+"speed": 45.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -119,7 +119,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"right-left",
-"speed": 30.0
+"speed": 45.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -172,7 +172,7 @@ visible = false
 position = Vector2(0, 1)
 scale = Vector2(0.087, 0.087)
 sprite_frames = SubResource("SpriteFrames_qype3")
-animation = &"left-right"
+animation = &"bot-top"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1ugju")
