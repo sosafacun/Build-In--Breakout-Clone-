@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://qmcsdi4rth6h"]
+[gd_scene load_steps=4 format=3 uid="uid://qmcsdi4rth6h"]
+
+[ext_resource type="Texture2D" uid="uid://c6j50d0u5bml8" path="res://scenes/levels/krita/exports/water+sand+sun.png" id="1_mslkq"]
+[ext_resource type="PackedScene" uid="uid://c0lh4i8emqi1u" path="res://scenes/ball/ball.tscn" id="2_pl4b4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oho6k"]
+size = Vector2(1233, 32)
 
 [node name="BlankLevel" type="Node2D"]
+
+[node name="Sky" type="ColorRect" parent="."]
+offset_right = 1201.0
+offset_bottom = 720.0
+
+[node name="ForeGround" type="Sprite2D" parent="."]
+position = Vector2(600, 369)
+texture = ExtResource("1_mslkq")
+
+[node name="Ball" parent="." instance=ExtResource("2_pl4b4")]
+position = Vector2(558, 401)
+
+[node name="Deathzone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(597.5, 706)
+shape = SubResource("RectangleShape2D_oho6k")
