@@ -14,9 +14,11 @@ Game #2-a
 
 **Goals:**
 - Create a game space with walls and a ceiling.
+- Add a paddle that can be moved left and right via player inputs.
 - Add a ball that will bounce off of the paddle, walls, and ceiling.
 - Add square game objects (bricks) into the top of the game space. (The original game had eight rows of 16 bricks each, though you can change the number of bricks depending on the size of the game space)
 - Enable the ball to bounce off of the bricks. When the ball bounces, the brick should disappear. 
+- The ball’s speed should increase as bricks are broken.
 
 
 **Stretch Goals:**
@@ -30,9 +32,7 @@ Game #2-a
 
 **Goals:**
 
-- Add a paddle that can be moved left and right via player inputs.
 - Breaking a brick should add to the player’s score.
-- The ball’s speed should increase as bricks are broken.
 - The score should be displayed, as well as a life counter. The player starts with three lives. If the player misses the ball, a life should be subtracted. When all lives are used, the game ends.
 
 **Stretch Goals:**

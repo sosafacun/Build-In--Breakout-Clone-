@@ -11,7 +11,7 @@ func _ready() -> void:
 	#Globals.player_width = collision.shape.length
 
 func _process(_delta: float) -> void:
-	var direction: Vector2
+	var direction: Vector2 = Vector2.ZERO
 	
 	if(Input.is_action_pressed("move_left")):
 		direction = Vector2.LEFT

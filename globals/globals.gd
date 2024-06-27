@@ -10,4 +10,6 @@ var is_game_active: bool = false
 #to track stats and possible changes
 var ball_position: Vector2
 var player_position: Vector2
+
+#scores
 var player_score: int

@@ -7,10 +7,12 @@ class_name Brick
 var color: Color
 
 @onready var brick_sprite: Sprite2D = get_node("./BrickSprite")
-@onready var hp: int = level
 @onready var value: int = level * 100
 
 func _ready() -> void:
+	change_color()
+
+func change_color() -> void:
 	if(level == 1):
 		color = Color('00e9c8')
 		brick_sprite.modulate = color
@@ -24,9 +26,10 @@ func _ready() -> void:
 		color = Color('00b900')
 
 func hit(damage: int) -> void:
-	print('hit')
-	hp = hp - damage
-	print(hp)
-	if(hp == 0):
-		print('free')
+	level -= damage
+	if(level <= 0):
+		Globals.player_score += value
+		print(Globals.player_score)
 		queue_free()
+	else:
+		change_color()
