@@ -43,22 +43,27 @@ func bounce(collider: Variant) -> void:
 	if(collider is Player):
 		velocity = pong_bounce(collider)
 		bounce_sprite("top-bot")
+		return
 	else:
-		velocity = velocity.bounce(collision_info.get_normal())
 		if(collider is Brick): 
 			var brick: Brick = collider
 			brick.hit(damage)
-		if(velocity.x >= -1):
-			bounce_sprite("left-right")
-		if(velocity.x <= 1):
-			bounce_sprite("right-left")
-		if (velocity.y >= -1):
+			velocity = pong_bounce(collider)
 			bounce_sprite("bot-top")
+			return
+		if(velocity.x >= 1 and velocity.y < velocity.x):
+			bounce_sprite("right-left")
+		if(velocity.x <= -1 and velocity.y < velocity.x):
+			bounce_sprite("left-right")
+			
+		bounce_sprite("bot-top")
+			
+		velocity = velocity.bounce(collision_info.get_normal())
 
 func pong_bounce(collider: Variant) -> Vector2:
 	var distance: float = Globals.ball_position.x - collider.position.x
 	var new_bounce: Vector2 = Vector2.ZERO
-	const MAX_BOUNCE_RANGE: float = 0.6
+	const MAX_BOUNCE_RANGE: float = 0.8
 	
 	if velocity.y > 0:
 		new_bounce.y = -1
