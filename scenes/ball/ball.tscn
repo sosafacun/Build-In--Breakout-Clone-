@@ -159,20 +159,22 @@ radius = 15.0
 
 [node name="Ball" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 11
 script = ExtResource("1_udoo6")
 
-[node name="BounceBall" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.087, 0.087)
-sprite_frames = SubResource("SpriteFrames_qype3")
-animation = &"top-bot"
-
 [node name="NormalBall" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0.249994, 1.24999)
 scale = Vector2(0.087, 0.087)
 texture = ExtResource("1_3tgxj")
 
+[node name="BounceBall" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(0.087, 0.087)
+sprite_frames = SubResource("SpriteFrames_qype3")
+animation = &"left-right"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1ugju")
+
+[connection signal="animation_finished" from="BounceBall" to="." method="_on_bounce_ball_animation_finished"]

@@ -1,28 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://qmcsdi4rth6h"]
+[gd_scene load_steps=8 format=3 uid="uid://qmcsdi4rth6h"]
 
 [ext_resource type="Texture2D" uid="uid://c6j50d0u5bml8" path="res://scenes/levels/krita/exports/water+sand+sun.png" id="1_mslkq"]
+[ext_resource type="Script" path="res://scenes/levels/blank_level.gd" id="1_rdlsc"]
 [ext_resource type="PackedScene" uid="uid://c0lh4i8emqi1u" path="res://scenes/ball/ball.tscn" id="2_pl4b4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oho6k"]
 size = Vector2(1233, 32)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hwqrc"]
+a = Vector2(1200, 1)
+b = Vector2(0, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yfkq2"]
+b = Vector2(0, 721)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ep0k2"]
+a = Vector2(1201, 0)
+b = Vector2(1201, 720)
+
 [node name="BlankLevel" type="Node2D"]
+script = ExtResource("1_rdlsc")
+metadata/_edit_lock_ = true
 
 [node name="Sky" type="ColorRect" parent="."]
 offset_right = 1201.0
 offset_bottom = 720.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="ForeGround" type="Sprite2D" parent="."]
 position = Vector2(600, 369)
 texture = ExtResource("1_mslkq")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Ball" parent="." instance=ExtResource("2_pl4b4")]
-position = Vector2(558, 401)
+position = Vector2(580, 592)
 
 [node name="Deathzone" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 4
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2(597.5, 706)
 shape = SubResource("RectangleShape2D_oho6k")
+
+[node name="BrickZone" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1201.0
+offset_bottom = 584.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="BrickGrid" type="GridContainer" parent="BrickZone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.734
+offset_bottom = -0.188019
+columns = 16
+
+[node name="Limits" type="Node2D" parent="."]
+visible = false
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Top" type="StaticBody2D" parent="Limits"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/Top"]
+shape = SubResource("SegmentShape2D_hwqrc")
+
+[node name="Left" type="StaticBody2D" parent="Limits"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/Left"]
+shape = SubResource("SegmentShape2D_yfkq2")
+
+[node name="Right" type="StaticBody2D" parent="Limits"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/Right"]
+shape = SubResource("SegmentShape2D_ep0k2")
