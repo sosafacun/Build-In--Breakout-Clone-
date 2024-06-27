@@ -42,3 +42,5 @@ Game #2-a
 **Personal Goals:**
 
 - Staticly type **everything** and don't let residual code lingering.
+- Create (at least) 10 lvls
+- Add power ups that affect the game. They should be dropped upen breaking a brick. Some examples: 1UP, Widder Paddle, Faster and stronger ball, Multiple balls
