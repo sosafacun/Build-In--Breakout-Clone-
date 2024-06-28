@@ -4,16 +4,18 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ar82e"]
 radius = 11.5
-height = 347.0
+height = 107.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 12
 script = ExtResource("1_4g4l8")
 
 [node name="PlaceHolderSprite" type="ColorRect" parent="."]
-offset_left = -174.0
+offset_left = -54.0
 offset_top = -12.0
-offset_right = 173.0
+offset_right = 53.0
 offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)

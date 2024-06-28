@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	if(collision_info):
 		var collider: Variant = collision_info.get_collider()
 		bounce(collider)
-		if(speed <= 30):
+		if(speed <= 20):
 			speed += ACCELERATION
 
 func set_starting_velocity() -> void:
@@ -48,7 +48,7 @@ func bounce(collider: Variant) -> void:
 		if(collider is Brick): 
 			var brick: Brick = collider
 			brick.hit(damage)
-			velocity = pong_bounce(collider)
+			velocity = velocity.bounce(collision_info.get_normal())
 			bounce_sprite("bot-top")
 			return
 		if(velocity.x >= 1 and velocity.y < velocity.x):
