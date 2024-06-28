@@ -21,7 +21,7 @@ Game #2-a
 - Breaking a brick should add to the player’s score.
 - The ball’s speed should increase as bricks are broken.
 - The score should be displayed, as well as a life counter. The player starts with three lives. If the player misses the ball, a life should be subtracted. 
-
+- When all lives are used, the game ends.
 
 **Stretch Goals:**
 
@@ -36,7 +36,6 @@ Game #2-a
 
 **Goals:**
 
-- When all lives are used, the game ends.
 
 **Stretch Goals:**
 

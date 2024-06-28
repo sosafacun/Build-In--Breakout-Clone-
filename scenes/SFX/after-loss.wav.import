@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dex7wvvfqnxcg"
-path="res://.godot/imported/BGM.wav-7bf2f0f41b2d0429203fc27621f850f8.sample"
+uid="uid://b7g4f5s1ycesk"
+path="res://.godot/imported/after-loss.wav-b51422724fc4d8b4e716e760a5bc7720.sample"
 
 [deps]
 
-source_file="res://scenes/SFX/BGM.wav"
-dest_files=["res://.godot/imported/BGM.wav-7bf2f0f41b2d0429203fc27621f850f8.sample"]
+source_file="res://scenes/SFX/after-loss.wav"
+dest_files=["res://.godot/imported/after-loss.wav-b51422724fc4d8b4e716e760a5bc7720.sample"]
 
 [params]
 

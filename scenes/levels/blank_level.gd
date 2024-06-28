@@ -8,6 +8,7 @@ const INIT_BALL_POSITION: Vector2 = Vector2(600, 620)
 @onready var lives_ui: Control = get_node("./UI/Lives")
 
 func _ready() -> void:
+	Music.play_bgm()
 	#Connect each brick's signal to update the player's score (see line 21)
 	for brick in get_tree().get_nodes_in_group('Bricks'):
 		brick.connect("broken_brick", _on_broken_brick)
@@ -62,4 +63,4 @@ func reset_bricks() -> void:
 
 func end_game() -> void:
 	Globals.is_game_active = false
-	print ('game ended')
+	Music.loss()

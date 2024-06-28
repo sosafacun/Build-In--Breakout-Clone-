@@ -19,5 +19,3 @@ func _process(_delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 	Globals.player_position = position
-	
-	#If the player presses "O" (the letter o) the colorblind mode will be enabled or disabled
