@@ -1,0 +1,316 @@
+[gd_scene load_steps=14 format=3 uid="uid://qmcsdi4rth6h"]
+
+[ext_resource type="Texture2D" uid="uid://c6j50d0u5bml8" path="res://scenes/levels/krita/exports/water+sand+sun.png" id="1_mslkq"]
+[ext_resource type="Script" path="res://scenes/levels/level_0/blank_level.gd" id="1_rdlsc"]
+[ext_resource type="PackedScene" uid="uid://c0lh4i8emqi1u" path="res://scenes/objects/ball/ball.tscn" id="2_pl4b4"]
+[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/objects/brick/brick.tscn" id="3_0g0o2"]
+[ext_resource type="PackedScene" uid="uid://j5bffhiyvlvp" path="res://scenes/objects/player/player.tscn" id="4_i58h0"]
+[ext_resource type="Texture2D" uid="uid://ctospsegejte6" path="res://scenes/objects/ball/normal-ball.png" id="5_0yhvw"]
+[ext_resource type="FontFile" uid="uid://qsj8a7mmxbi5" path="res://globals/UI/5yearsoldfont.ttf" id="6_ilbjr"]
+[ext_resource type="Texture2D" uid="uid://cjkbo0wut25jx" path="res://globals/UI/ui.png" id="7_2xg08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oho6k"]
+size = Vector2(977, 32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hwqrc"]
+a = Vector2(1200, 1)
+b = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fulk"]
+size = Vector2(2, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt21k"]
+size = Vector2(3, 691)
+
+[sub_resource type="Theme" id="Theme_6ffti"]
+default_font = ExtResource("6_ilbjr")
+
+[node name="BlankLevel" type="Node2D"]
+script = ExtResource("1_rdlsc")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.14
+metadata/_edit_lock_ = true
+
+[node name="MainGame" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Node2D" parent="MainGame"]
+
+[node name="Sky" type="ColorRect" parent="MainGame/Background"]
+offset_left = 238.0
+offset_right = 1201.0
+offset_bottom = 720.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Star" type="Node2D" parent="MainGame/Background"]
+
+[node name="StarSprite" type="Sprite2D" parent="MainGame/Background/Star"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainGame/Background/Star"]
+
+[node name="ForeGround" type="Sprite2D" parent="MainGame/Background"]
+position = Vector2(719, 369)
+scale = Vector2(0.801667, 1)
+texture = ExtResource("1_mslkq")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Bricks" type="Node2D" parent="MainGame"]
+metadata/_edit_lock_ = true
+
+[node name="Row1" type="Node2D" parent="MainGame/Bricks"]
+position = Vector2(304, 328)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row1" instance=ExtResource("3_0g0o2")]
+
+[node name="Deathzone" type="Area2D" parent="MainGame"]
+collision_layer = 2
+collision_mask = 4
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainGame/Deathzone"]
+position = Vector2(725.5, 706)
+shape = SubResource("RectangleShape2D_oho6k")
+
+[node name="Limits" type="Node2D" parent="MainGame"]
+position = Vector2(239, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Top" type="StaticBody2D" parent="MainGame/Limits"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainGame/Limits/Top"]
+shape = SubResource("SegmentShape2D_hwqrc")
+
+[node name="Left" type="StaticBody2D" parent="MainGame/Limits"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainGame/Limits/Left"]
+position = Vector2(-1, 360)
+shape = SubResource("RectangleShape2D_3fulk")
+
+[node name="Right" type="StaticBody2D" parent="MainGame/Limits"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainGame/Limits/Right"]
+position = Vector2(961.5, 345.5)
+shape = SubResource("RectangleShape2D_xt21k")
+
+[node name="ExtraBalls" type="Node2D" parent="MainGame"]
+metadata/_edit_lock_ = true
+
+[node name="Ball" parent="MainGame" instance=ExtResource("2_pl4b4")]
+position = Vector2(729, 614)
+damage = 1
+
+[node name="Player" parent="MainGame" instance=ExtResource("4_i58h0")]
+position = Vector2(728, 648)
+speed = 350
+
+[node name="BGM" type="AudioStreamPlayer" parent="MainGame"]
+volume_db = -80.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 238.0
+offset_bottom = 720.0
+theme = SubResource("Theme_6ffti")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Ui" type="Sprite2D" parent="UI"]
+position = Vector2(120, 360)
+texture = ExtResource("7_2xg08")
+metadata/_edit_lock_ = true
+
+[node name="Controls" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.778
+anchor_right = 1.0
+anchor_bottom = 1.111
+offset_top = -144.16
+offset_bottom = -263.92
+theme_override_colors/font_color = Color(0.27863, 0.236928, 0.0161153, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.478431, 0, 0.670588)
+theme_override_colors/font_outline_color = Color(0.0879478, 0.0678785, 0.000335339, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "A - Move Left / D - Move right
+____________________________
+Space bar - shoot the ball
+____________________________
+R - Enable / disable 
+colorblind mode
+"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Control" parent="UI"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.2
+offset_right = 2.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="UI/HighScore"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.333
+anchor_right = 1.667
+anchor_bottom = 1.125
+offset_top = 335.952
+offset_right = -160.08
+offset_bottom = -50.0
+theme_override_colors/font_color = Color(0.27863, 0.236928, 0.0161153, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.478431, 0, 0.670588)
+theme_override_colors/font_outline_color = Color(0.0879478, 0.0678785, 0.000335339, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "Current
+Highscore"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="CurrentHighScore" type="Label" parent="UI/HighScore"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.778
+anchor_right = 1.0
+anchor_bottom = 1.111
+offset_top = -0.0320053
+offset_bottom = 0.0159912
+theme_override_colors/font_color = Color(0.27863, 0.236928, 0.0161153, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.478431, 0, 0.670588)
+theme_override_colors/font_outline_color = Color(0.0879478, 0.0678785, 0.000335339, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentScore" type="Control" parent="UI"]
+layout_mode = 1
+anchor_top = 0.211
+anchor_right = 1.0
+anchor_bottom = 0.589
+offset_top = 0.0799866
+offset_right = 2.0
+offset_bottom = -0.0800476
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="UI/CurrentScore"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.118
+anchor_right = 1.0
+anchor_bottom = 0.324
+offset_top = -0.0960007
+offset_bottom = -0.127998
+theme_override_colors/font_color = Color(0.27863, 0.236928, 0.0161153, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.478431, 0, 0.670588)
+theme_override_colors/font_outline_color = Color(0.0879478, 0.0678785, 0.000335339, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "Score
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="UI/CurrentScore"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.441
+anchor_right = 1.0
+anchor_bottom = 0.647
+offset_top = 0.0479965
+offset_bottom = 0.0159912
+theme_override_colors/font_color = Color(0.27863, 0.236928, 0.0161153, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.478431, 0, 0.670588)
+theme_override_colors/font_outline_color = Color(0.0879478, 0.0678785, 0.000335339, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.214
+anchor_right = 1.0
+anchor_bottom = 0.143
+offset_top = 730.08
+offset_bottom = 522.04
+theme_override_colors/font_color = Color(0.27863, 0.236928, 0.0161153, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.478431, 0, 0.670588)
+theme_override_colors/font_outline_color = Color(0.0879478, 0.0678785, 0.000335339, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "Lives
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Lives" type="Control" parent="UI"]
+anchors_preset = 0
+offset_top = 608.0
+offset_right = 240.0
+offset_bottom = 720.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="1" type="Sprite2D" parent="UI/Lives"]
+visible = false
+position = Vector2(77, 29)
+scale = Vector2(0.084, 0.084)
+texture = ExtResource("5_0yhvw")
+
+[node name="2" type="Sprite2D" parent="UI/Lives"]
+visible = false
+position = Vector2(117, 29)
+scale = Vector2(0.084, 0.084)
+texture = ExtResource("5_0yhvw")
+
+[node name="3" type="Sprite2D" parent="UI/Lives"]
+visible = false
+position = Vector2(157, 29)
+scale = Vector2(0.084, 0.084)
+texture = ExtResource("5_0yhvw")
+
+[node name="4" type="Sprite2D" parent="UI/Lives"]
+visible = false
+position = Vector2(77, 69)
+scale = Vector2(0.084, 0.084)
+texture = ExtResource("5_0yhvw")
+
+[node name="5" type="Sprite2D" parent="UI/Lives"]
+visible = false
+position = Vector2(117, 69)
+scale = Vector2(0.084, 0.084)
+texture = ExtResource("5_0yhvw")
+
+[node name="6" type="Sprite2D" parent="UI/Lives"]
+visible = false
+position = Vector2(157, 69)
+scale = Vector2(0.084, 0.084)
+texture = ExtResource("5_0yhvw")
+
+[connection signal="level_finished" from="." to="." method="_on_level_finished"]
+[connection signal="body_entered" from="MainGame/Deathzone" to="." method="_on_deathzone_body_entered"]

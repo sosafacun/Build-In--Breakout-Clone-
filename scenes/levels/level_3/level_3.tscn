@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://lqwafx03air"]
 
-[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_4gjoo"]
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/level_0/blank_level.tscn" id="1_4gjoo"]
 [ext_resource type="Script" path="res://scenes/levels/level_3/level_3.gd" id="2_1bkom"]
 [ext_resource type="Texture2D" uid="uid://dc25fmved2xgp" path="res://scenes/levels/krita/exports/sun.png" id="2_4q6f7"]
 [ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_1l3nc"]
 [ext_resource type="AudioStream" uid="uid://cnltrs38g4f67" path="res://scenes/levels/level_3/Midday.wav" id="4_le3o0"]
-[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="5_4aqlo"]
+[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/objects/brick/brick.tscn" id="5_4aqlo"]
 
 [sub_resource type="Animation" id="Animation_fkrgm"]
 resource_name = "sun_ring"
@@ -72,14 +72,11 @@ libraries = {
 }
 autoplay = "sun_ring"
 
-[node name="Row1" parent="MainGame/Bricks" index="0"]
-metadata/_edit_lock_ = true
+[node name="Brick2" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("5_4aqlo")]
+position = Vector2(511, -69)
 
-[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("5_4aqlo")]
-position = Vector2(728, 584)
-
-[node name="ExtraBalls" parent="MainGame" index="4"]
-metadata/_edit_lock_ = true
+[node name="Brick" parent="MainGame/Bricks/Row1" index="1"]
+position = Vector2(319, -70)
 
 [node name="BGM" parent="MainGame" index="7"]
 stream = ExtResource("4_le3o0")

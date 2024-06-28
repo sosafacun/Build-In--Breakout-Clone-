@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdn7yjjv18n6q"]
+[gd_scene load_steps=4 format=3 uid="uid://bdn7yjjv18n6q"]
 
-[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_emahm"]
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/level_0/blank_level.tscn" id="1_emahm"]
 [ext_resource type="Script" path="res://scenes/levels/level_7/level_7.gd" id="2_htgyr"]
 [ext_resource type="AudioStream" uid="uid://4qpo5h4dse2d" path="res://scenes/levels/level_7/GoodbyeDayOldFriend.wav" id="2_rusg0"]
-[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="3_p8a71"]
 
 [node name="Level7" instance=ExtResource("1_emahm")]
 script = ExtResource("2_htgyr")
@@ -15,9 +14,6 @@ blend_mode = 1
 
 [node name="Sky" parent="MainGame/Background" index="0"]
 color = Color(0.0518916, 2.97809e-05, 0.250817, 1)
-
-[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("3_p8a71")]
-position = Vector2(728, 584)
 
 [node name="BGM" parent="MainGame" index="7"]
 stream = ExtResource("2_rusg0")

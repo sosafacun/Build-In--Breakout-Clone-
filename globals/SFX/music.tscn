@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://rluhojnqgm55"]
+
+[ext_resource type="Script" path="res://globals/SFX/music.gd" id="1_i4uqb"]
+[ext_resource type="AudioStream" uid="uid://d2ab58s867apw" path="res://globals/SFX/brick-break-short.wav" id="4_w8l4t"]
+[ext_resource type="AudioStream" uid="uid://du7frl8rvkwou" path="res://globals/SFX/brick-hit-short.wav" id="5_vm7uj"]
+[ext_resource type="AudioStream" uid="uid://dcxcg3082bi4" path="res://globals/SFX/player-bounce-short.wav" id="6_dl438"]
+[ext_resource type="AudioStream" uid="uid://b8w7setuw4w7b" path="res://globals/SFX/wall-bounce-short.wav" id="7_3b1dj"]
+[ext_resource type="AudioStream" uid="uid://cfou510ox38fb" path="res://globals/SFX/loss.wav" id="8_xuy20"]
+[ext_resource type="AudioStream" uid="uid://b7g4f5s1ycesk" path="res://globals/SFX/after-loss.wav" id="9_u0seu"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_i4uqb")
+
+[node name="BrokenBrick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_w8l4t")
+
+[node name="HitBrick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vm7uj")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dl438")
+
+[node name="WallHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3b1dj")
+
+[node name="Loss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xuy20")
+volume_db = -10.0
+
+[node name="AfterLoss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_u0seu")
+volume_db = -10.0
+
+[connection signal="finished" from="Loss" to="." method="_on___loss_finished"]

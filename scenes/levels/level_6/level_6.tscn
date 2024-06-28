@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5n1o4nh0swf4"]
+[gd_scene load_steps=4 format=3 uid="uid://c5n1o4nh0swf4"]
 
-[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_84n45"]
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/level_0/blank_level.tscn" id="1_84n45"]
 [ext_resource type="AudioStream" uid="uid://b08je7tgsu3ef" path="res://scenes/levels/level_6/MoonlitTides.wav" id="2_7jorp"]
 [ext_resource type="Script" path="res://scenes/levels/level_6/level_6.gd" id="2_kh5x0"]
-[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="3_5ggft"]
 
 [node name="Level6" instance=ExtResource("1_84n45")]
 script = ExtResource("2_kh5x0")
@@ -15,9 +14,6 @@ blend_mode = 1
 
 [node name="Sky" parent="MainGame/Background" index="0"]
 color = Color(0.0894619, 0.182662, 0.2788, 1)
-
-[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("3_5ggft")]
-position = Vector2(728, 584)
 
 [node name="BGM" parent="MainGame" index="7"]
 stream = ExtResource("2_7jorp")

@@ -15,6 +15,8 @@ var player_lives: int:
 	set(value):
 		player_lives = min(value, 6)
 
+var top_score: int
+
 #scores
 var player_score: int
 

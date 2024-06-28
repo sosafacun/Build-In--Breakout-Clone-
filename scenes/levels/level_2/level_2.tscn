@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://b8o1utekfytdi"]
 
-[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_a6shx"]
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/level_0/blank_level.tscn" id="1_a6shx"]
 [ext_resource type="Script" path="res://scenes/levels/level_2/level_2.gd" id="2_2ghko"]
 [ext_resource type="Texture2D" uid="uid://dc25fmved2xgp" path="res://scenes/levels/krita/exports/sun.png" id="2_lhem2"]
 [ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_8q6l0"]
 [ext_resource type="AudioStream" uid="uid://bi3xkm2flpbk" path="res://scenes/levels/level_2/BrunchTime.wav" id="4_ddpwe"]
-[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="5_vctp0"]
+[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/objects/brick/brick.tscn" id="5_vctp0"]
 
 [sub_resource type="Animation" id="Animation_rx3ck"]
 resource_name = "run_ring"
@@ -73,8 +73,241 @@ libraries = {
 }
 autoplay = "run_ring"
 
-[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("5_vctp0")]
-position = Vector2(728, 584)
+[node name="Row1" parent="MainGame/Bricks" index="0"]
+position = Vector2(304, 176)
+
+[node name="Brick3" parent="MainGame/Bricks/Row1" index="1" instance=ExtResource("5_vctp0")]
+position = Vector2(832, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row1" index="2" instance=ExtResource("5_vctp0")]
+position = Vector2(768, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row1" index="3" instance=ExtResource("5_vctp0")]
+position = Vector2(704, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row1" index="4" instance=ExtResource("5_vctp0")]
+position = Vector2(640, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row1" index="5" instance=ExtResource("5_vctp0")]
+position = Vector2(576, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row1" index="6" instance=ExtResource("5_vctp0")]
+position = Vector2(512, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row1" index="7" instance=ExtResource("5_vctp0")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row1" index="8" instance=ExtResource("5_vctp0")]
+position = Vector2(384, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row1" index="9" instance=ExtResource("5_vctp0")]
+position = Vector2(320, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row1" index="10" instance=ExtResource("5_vctp0")]
+position = Vector2(256, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row1" index="11" instance=ExtResource("5_vctp0")]
+position = Vector2(192, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row1" index="12" instance=ExtResource("5_vctp0")]
+position = Vector2(128, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row1" index="13" instance=ExtResource("5_vctp0")]
+position = Vector2(64, 0)
+
+[node name="Row2" type="Node2D" parent="MainGame/Bricks" index="1"]
+position = Vector2(304, 80)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row2" index="0" instance=ExtResource("5_vctp0")]
+
+[node name="Brick3" parent="MainGame/Bricks/Row2" index="1" instance=ExtResource("5_vctp0")]
+position = Vector2(832, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row2" index="2" instance=ExtResource("5_vctp0")]
+position = Vector2(768, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row2" index="3" instance=ExtResource("5_vctp0")]
+position = Vector2(704, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row2" index="4" instance=ExtResource("5_vctp0")]
+position = Vector2(640, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row2" index="5" instance=ExtResource("5_vctp0")]
+position = Vector2(576, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row2" index="6" instance=ExtResource("5_vctp0")]
+position = Vector2(512, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row2" index="7" instance=ExtResource("5_vctp0")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row2" index="8" instance=ExtResource("5_vctp0")]
+position = Vector2(384, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row2" index="9" instance=ExtResource("5_vctp0")]
+position = Vector2(320, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row2" index="10" instance=ExtResource("5_vctp0")]
+position = Vector2(256, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row2" index="11" instance=ExtResource("5_vctp0")]
+position = Vector2(192, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row2" index="12" instance=ExtResource("5_vctp0")]
+position = Vector2(128, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row2" index="13" instance=ExtResource("5_vctp0")]
+position = Vector2(64, 0)
+
+[node name="Row3" type="Node2D" parent="MainGame/Bricks" index="2"]
+position = Vector2(304, 112)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row3" index="0" instance=ExtResource("5_vctp0")]
+
+[node name="Brick3" parent="MainGame/Bricks/Row3" index="1" instance=ExtResource("5_vctp0")]
+position = Vector2(832, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row3" index="2" instance=ExtResource("5_vctp0")]
+position = Vector2(768, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row3" index="3" instance=ExtResource("5_vctp0")]
+position = Vector2(704, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row3" index="4" instance=ExtResource("5_vctp0")]
+position = Vector2(640, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row3" index="5" instance=ExtResource("5_vctp0")]
+position = Vector2(576, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row3" index="6" instance=ExtResource("5_vctp0")]
+position = Vector2(512, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row3" index="7" instance=ExtResource("5_vctp0")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row3" index="8" instance=ExtResource("5_vctp0")]
+position = Vector2(384, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row3" index="9" instance=ExtResource("5_vctp0")]
+position = Vector2(320, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row3" index="10" instance=ExtResource("5_vctp0")]
+position = Vector2(256, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row3" index="11" instance=ExtResource("5_vctp0")]
+position = Vector2(192, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row3" index="12" instance=ExtResource("5_vctp0")]
+position = Vector2(128, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row3" index="13" instance=ExtResource("5_vctp0")]
+position = Vector2(64, 0)
+
+[node name="Row4" type="Node2D" parent="MainGame/Bricks" index="3"]
+position = Vector2(304, 144)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row4" index="0" instance=ExtResource("5_vctp0")]
+
+[node name="Brick3" parent="MainGame/Bricks/Row4" index="1" instance=ExtResource("5_vctp0")]
+position = Vector2(832, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row4" index="2" instance=ExtResource("5_vctp0")]
+position = Vector2(768, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row4" index="3" instance=ExtResource("5_vctp0")]
+position = Vector2(704, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row4" index="4" instance=ExtResource("5_vctp0")]
+position = Vector2(640, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row4" index="5" instance=ExtResource("5_vctp0")]
+position = Vector2(576, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row4" index="6" instance=ExtResource("5_vctp0")]
+position = Vector2(512, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row4" index="7" instance=ExtResource("5_vctp0")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row4" index="8" instance=ExtResource("5_vctp0")]
+position = Vector2(384, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row4" index="9" instance=ExtResource("5_vctp0")]
+position = Vector2(320, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row4" index="10" instance=ExtResource("5_vctp0")]
+position = Vector2(256, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row4" index="11" instance=ExtResource("5_vctp0")]
+position = Vector2(192, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row4" index="12" instance=ExtResource("5_vctp0")]
+position = Vector2(128, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row4" index="13" instance=ExtResource("5_vctp0")]
+position = Vector2(64, 0)
+
+[node name="Row5" type="Node2D" parent="MainGame/Bricks" index="4"]
+position = Vector2(304, 48)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row5" index="0" instance=ExtResource("5_vctp0")]
+level = 2
+
+[node name="Brick3" parent="MainGame/Bricks/Row5" index="1" instance=ExtResource("5_vctp0")]
+position = Vector2(832, 0)
+level = 2
+
+[node name="Brick4" parent="MainGame/Bricks/Row5" index="2" instance=ExtResource("5_vctp0")]
+position = Vector2(768, 0)
+level = 2
+
+[node name="Brick5" parent="MainGame/Bricks/Row5" index="3" instance=ExtResource("5_vctp0")]
+position = Vector2(704, 0)
+level = 2
+
+[node name="Brick6" parent="MainGame/Bricks/Row5" index="4" instance=ExtResource("5_vctp0")]
+position = Vector2(640, 0)
+level = 2
+
+[node name="Brick7" parent="MainGame/Bricks/Row5" index="5" instance=ExtResource("5_vctp0")]
+position = Vector2(576, 0)
+level = 2
+
+[node name="Brick8" parent="MainGame/Bricks/Row5" index="6" instance=ExtResource("5_vctp0")]
+position = Vector2(512, 0)
+level = 2
+
+[node name="Brick9" parent="MainGame/Bricks/Row5" index="7" instance=ExtResource("5_vctp0")]
+position = Vector2(448, 0)
+level = 2
+
+[node name="Brick10" parent="MainGame/Bricks/Row5" index="8" instance=ExtResource("5_vctp0")]
+position = Vector2(384, 0)
+level = 2
+
+[node name="Brick11" parent="MainGame/Bricks/Row5" index="9" instance=ExtResource("5_vctp0")]
+position = Vector2(320, 0)
+level = 2
+
+[node name="Brick12" parent="MainGame/Bricks/Row5" index="10" instance=ExtResource("5_vctp0")]
+position = Vector2(256, 0)
+level = 2
+
+[node name="Brick13" parent="MainGame/Bricks/Row5" index="11" instance=ExtResource("5_vctp0")]
+position = Vector2(192, 0)
+level = 2
+
+[node name="Brick14" parent="MainGame/Bricks/Row5" index="12" instance=ExtResource("5_vctp0")]
+position = Vector2(128, 0)
+level = 2
+
+[node name="Brick15" parent="MainGame/Bricks/Row5" index="13" instance=ExtResource("5_vctp0")]
+position = Vector2(64, 0)
+level = 2
 
 [node name="BGM" parent="MainGame" index="7"]
 stream = ExtResource("4_ddpwe")

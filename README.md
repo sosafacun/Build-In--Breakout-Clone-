@@ -8,7 +8,9 @@ Game #2-a
 > 
 > Fun fact: Steve Jobs and Steve Wozniak (yes, the Apple guys) worked together to design the Breakout hardware. Like Pong, the game was made from transistors. Again, the game will be much easier to make if you use a modern game engine instead of starting from a pile of wires.
 
-**Note**: I'll be making my own assets using [Krita](https://krita.org/) for the graphics and [beepbox](https://www.beepbox.co) for the sounds / music.
+**Notes**: 
+- I'll be making my own assets using [Krita](https://krita.org/) for the graphics and [beepbox](https://www.beepbox.co) for the sounds / music.
+- The font is "5 Years Old Font" by Michel LUN. Taken from [1001 free fonts](https://www.1001freefonts.com/5-years-old-font.font)
 
 # Done:
 
