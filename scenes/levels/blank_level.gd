@@ -1,4 +1,5 @@
 extends Node2D
+class_name BlankLevel
 
 const INIT_BALL_POSITION: Vector2 = Vector2(600, 620)
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 		bricks_left += 1
 		brick.connect("broken_brick", _on_broken_brick)
 	#shows the amount of remaining lives (see line 26)
+	current_score_label.text = str(Globals.player_score)
 	update_life_sprites()
 
 func _on_deathzone_body_entered(_body: CharacterBody2D) -> void:
@@ -51,18 +53,8 @@ func _process(_delta: float) -> void:
 		level_finished.emit()
 	
 	#Enables the colorblind mode
-	if(Input.is_action_just_pressed("colorblind_test") 
-	and Globals.is_colorblind_enabled == false):
-		
-		Globals.is_colorblind_enabled = true
-		reset_bricks()
-		return
-	
-	#Disabled the colorblind mode
-	if(Input.is_action_just_pressed("colorblind_test") 
-	and Globals.is_colorblind_enabled == true):
-		
-		Globals.is_colorblind_enabled = false
+	if(Input.is_action_just_pressed("colorblind_test")):
+		Globals.is_colorblind_enabled = !Globals.is_colorblind_enabled
 		reset_bricks()
 		return
 
@@ -81,7 +73,4 @@ func fade_bgm(volume: int, seconds: float) -> void:
 	bgm_audio.play()
 	tween.tween_property(bgm_audio, "volume_db", volume, seconds)
 
-func _on_level_finished() -> void:
-	Globals.is_game_active = false
-	fade_bgm(-80, 3)
-	print('going to the next level')
+

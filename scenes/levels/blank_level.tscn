@@ -23,7 +23,12 @@ size = Vector2(3, 691)
 script = ExtResource("1_rdlsc")
 metadata/_edit_lock_ = true
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.14
+metadata/_edit_lock_ = true
+
 [node name="MainGame" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Node2D" parent="MainGame"]
 
@@ -51,6 +56,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Row1" type="Node2D" parent="MainGame/Bricks"]
+position = Vector2(688, 168)
+metadata/_edit_group_ = true
 
 [node name="Deathzone" type="Area2D" parent="MainGame"]
 collision_layer = 2
@@ -91,22 +98,26 @@ position = Vector2(961.5, 345.5)
 shape = SubResource("RectangleShape2D_xt21k")
 
 [node name="ExtraBalls" type="Node2D" parent="MainGame"]
+metadata/_edit_lock_ = true
 
 [node name="Ball" parent="MainGame" instance=ExtResource("2_pl4b4")]
 position = Vector2(729, 614)
 damage = 1
 
 [node name="Player" parent="MainGame" instance=ExtResource("4_i58h0")]
-position = Vector2(600, 651)
+position = Vector2(728, 648)
 speed = 350
 
 [node name="BGM" type="AudioStreamPlayer" parent="MainGame"]
+volume_db = -80.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 238.0
 offset_bottom = 720.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="HighScore" type="Control" parent="UI"]
 layout_mode = 1

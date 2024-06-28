@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8o1utekfytdi"]
+[gd_scene load_steps=10 format=3 uid="uid://b8o1utekfytdi"]
 
 [ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_a6shx"]
+[ext_resource type="Script" path="res://scenes/levels/level_2/level_2.gd" id="2_2ghko"]
 [ext_resource type="Texture2D" uid="uid://dc25fmved2xgp" path="res://scenes/levels/krita/exports/sun.png" id="2_lhem2"]
 [ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_8q6l0"]
 [ext_resource type="AudioStream" uid="uid://bi3xkm2flpbk" path="res://scenes/levels/level_2/BrunchTime.wav" id="4_ddpwe"]
+[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="5_vctp0"]
 
 [sub_resource type="Animation" id="Animation_rx3ck"]
 resource_name = "run_ring"
@@ -43,6 +45,11 @@ _data = {
 }
 
 [node name="Level2" instance=ExtResource("1_a6shx")]
+script = ExtResource("2_2ghko")
+
+[node name="DirectionalLight2D" parent="." index="0"]
+color = Color(0.92549, 0.854902, 0, 1)
+energy = 0.2
 
 [node name="Sky" parent="MainGame/Background" index="0"]
 color = Color(0.4, 0.580392, 1, 1)
@@ -65,6 +72,9 @@ libraries = {
 "": SubResource("AnimationLibrary_yn3r6")
 }
 autoplay = "run_ring"
+
+[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("5_vctp0")]
+position = Vector2(728, 584)
 
 [node name="BGM" parent="MainGame" index="7"]
 stream = ExtResource("4_ddpwe")

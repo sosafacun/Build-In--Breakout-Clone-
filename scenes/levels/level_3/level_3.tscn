@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://lqwafx03air"]
+
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_4gjoo"]
+[ext_resource type="Script" path="res://scenes/levels/level_3/level_3.gd" id="2_1bkom"]
+[ext_resource type="Texture2D" uid="uid://dc25fmved2xgp" path="res://scenes/levels/krita/exports/sun.png" id="2_4q6f7"]
+[ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_1l3nc"]
+[ext_resource type="AudioStream" uid="uid://cnltrs38g4f67" path="res://scenes/levels/level_3/Midday.wav" id="4_le3o0"]
+[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="5_4aqlo"]
+
+[sub_resource type="Animation" id="Animation_fkrgm"]
+resource_name = "sun_ring"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gi4d7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_slbv6"]
+_data = {
+"RESET": SubResource("Animation_gi4d7"),
+"sun_ring": SubResource("Animation_fkrgm")
+}
+
+[node name="Level3" instance=ExtResource("1_4gjoo")]
+script = ExtResource("2_1bkom")
+
+[node name="DirectionalLight2D" parent="." index="0"]
+color = Color(0.92549, 0.854902, 0, 1)
+energy = 0.28
+
+[node name="Sky" parent="MainGame/Background" index="0"]
+color = Color(0.309804, 0.72549, 1, 1)
+
+[node name="Star" parent="MainGame/Background" index="1"]
+position = Vector2(696, 96)
+
+[node name="StarSprite" parent="MainGame/Background/Star" index="0"]
+texture = ExtResource("2_4q6f7")
+metadata/_edit_lock_ = true
+
+[node name="Sun-ring" type="Sprite2D" parent="MainGame/Background/Star" index="1"]
+position = Vector2(0, -8)
+texture = ExtResource("3_1l3nc")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" parent="MainGame/Background/Star" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_slbv6")
+}
+autoplay = "sun_ring"
+
+[node name="Row1" parent="MainGame/Bricks" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("5_4aqlo")]
+position = Vector2(728, 584)
+
+[node name="ExtraBalls" parent="MainGame" index="4"]
+metadata/_edit_lock_ = true
+
+[node name="BGM" parent="MainGame" index="7"]
+stream = ExtResource("4_le3o0")
+
+[node name="UI" parent="." index="2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
