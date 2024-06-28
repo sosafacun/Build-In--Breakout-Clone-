@@ -423,7 +423,7 @@ position = Vector2(504, 0)
 damage = 1
 
 [node name="Player" parent="MainGame" index="6"]
-speed = 350
+speed = 400
 
 [node name="UI" parent="." index="1"]
 metadata/_edit_lock_ = true

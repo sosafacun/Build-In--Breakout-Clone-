@@ -13,13 +13,16 @@ func _ready() -> void:
 		brick.connect("broken_brick", _on_broken_brick)
 	#shows the amount of remaining lives (see line 26)
 	update_life_sprites()
-	
+
 func _on_deathzone_body_entered(_body: CharacterBody2D) -> void:
 	Globals.is_game_active = false
 	ball.speed = 0
 	ball.position = INIT_BALL_POSITION
 	Globals.player_lives -= 1
-	update_life_sprites()
+	if(Globals.player_lives >= 0):
+		update_life_sprites()
+	else:
+		end_game()
 
 func _on_broken_brick() -> void:
 	current_score_label.text = str(Globals.player_score)
@@ -56,3 +59,7 @@ func _process(_delta: float) -> void:
 func reset_bricks() -> void:
 	for brick: Brick in get_tree().get_nodes_in_group('Bricks'):
 		brick.colorblind_enabled()
+
+func end_game() -> void:
+	Globals.is_game_active = false
+	print ('game ended')
