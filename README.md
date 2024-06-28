@@ -20,6 +20,7 @@ Game #2-a
 - Enable the ball to bounce off of the bricks. When the ball bounces, the brick should disappear. 
 - Breaking a brick should add to the player’s score.
 - The ball’s speed should increase as bricks are broken.
+- The score should be displayed, as well as a life counter. The player starts with three lives. If the player misses the ball, a life should be subtracted. 
 
 
 **Stretch Goals:**
@@ -28,12 +29,14 @@ Game #2-a
 
 **Personal Goals:**
 
+- Introduced a toggable colorblind mode
+
 
 # TODO:
 
 **Goals:**
 
-- The score should be displayed, as well as a life counter. The player starts with three lives. If the player misses the ball, a life should be subtracted. When all lives are used, the game ends.
+- When all lives are used, the game ends.
 
 **Stretch Goals:**
 

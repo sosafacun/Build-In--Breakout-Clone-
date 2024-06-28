@@ -38,16 +38,16 @@ func _process(_delta: float) -> void:
 	#Enables the colorblind mode
 	if(Input.is_action_just_pressed("colorblind_test") 
 	and Globals.is_colorblind_enabled == false):
+		
 		Globals.is_colorblind_enabled = true
-		print('enabled')
 		reset_bricks()
 		return
 	
 	#Disabled the colorblind mode
 	if(Input.is_action_just_pressed("colorblind_test") 
 	and Globals.is_colorblind_enabled == true):
+		
 		Globals.is_colorblind_enabled = false
-		print('disabled')
 		reset_bricks()
 		return
 
