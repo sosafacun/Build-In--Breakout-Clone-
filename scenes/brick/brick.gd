@@ -31,12 +31,10 @@ func change_color() -> void:
 func hit(damage: int) -> void:
 	level -= damage
 	if(level <= 0):
-		Music.broken_brick()
 		Globals.player_score += value
 		broken_brick.emit()
 		queue_free()
 	else:
-		Music.hit_brick()
 		change_color()
 
 #Calls the _ready() function again to turn on/off the colorblind mode

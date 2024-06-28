@@ -1,0 +1,285 @@
+[gd_scene load_steps=9 format=3 uid="uid://csgv20t7cyum5"]
+
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_daca1"]
+[ext_resource type="Texture2D" uid="uid://dc25fmved2xgp" path="res://scenes/levels/krita/exports/sun.png" id="2_ufby4"]
+[ext_resource type="PackedScene" uid="uid://b8y8mou06kdr0" path="res://scenes/brick/brick.tscn" id="2_weryf"]
+[ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_drfeh"]
+[ext_resource type="AudioStream" uid="uid://bqkn3j7e8opob" path="res://scenes/levels/level_1/GoodMorning.wav" id="3_x3ybe"]
+
+[sub_resource type="Animation" id="Animation_x2c05"]
+resource_name = "ring"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_j2pal"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qprbj"]
+_data = {
+"RESET": SubResource("Animation_j2pal"),
+"ring": SubResource("Animation_x2c05")
+}
+
+[node name="Level1" instance=ExtResource("1_daca1")]
+
+[node name="Sky" parent="MainGame/Background" index="0"]
+color = Color(0.549031, 0.581703, 0.999999, 1)
+
+[node name="Star" parent="MainGame/Background" index="1"]
+position = Vector2(1184, 416)
+
+[node name="StarSprite" parent="MainGame/Background/Star" index="0"]
+texture = ExtResource("2_ufby4")
+metadata/_edit_lock_ = true
+
+[node name="Sun-ring" type="Sprite2D" parent="MainGame/Background/Star" index="1"]
+position = Vector2(11.25, -13.75)
+scale = Vector2(0.959893, 0.971698)
+texture = ExtResource("3_drfeh")
+
+[node name="AnimationPlayer" parent="MainGame/Background/Star" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_qprbj")
+}
+autoplay = "ring"
+
+[node name="Row1" parent="MainGame/Bricks" index="0"]
+position = Vector2(296, 312)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row1" index="0" instance=ExtResource("2_weryf")]
+
+[node name="Brick2" parent="MainGame/Bricks/Row1" index="1" instance=ExtResource("2_weryf")]
+position = Vector2(392, 0)
+
+[node name="Brick3" parent="MainGame/Bricks/Row1" index="2" instance=ExtResource("2_weryf")]
+position = Vector2(336, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row1" index="3" instance=ExtResource("2_weryf")]
+position = Vector2(280, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row1" index="4" instance=ExtResource("2_weryf")]
+position = Vector2(224, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row1" index="5" instance=ExtResource("2_weryf")]
+position = Vector2(168, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row1" index="6" instance=ExtResource("2_weryf")]
+position = Vector2(112, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row1" index="7" instance=ExtResource("2_weryf")]
+position = Vector2(56, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row1" index="8" instance=ExtResource("2_weryf")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row1" index="9" instance=ExtResource("2_weryf")]
+position = Vector2(840, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row1" index="10" instance=ExtResource("2_weryf")]
+position = Vector2(784, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row1" index="11" instance=ExtResource("2_weryf")]
+position = Vector2(728, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row1" index="12" instance=ExtResource("2_weryf")]
+position = Vector2(672, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row1" index="13" instance=ExtResource("2_weryf")]
+position = Vector2(616, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row1" index="14" instance=ExtResource("2_weryf")]
+position = Vector2(560, 0)
+
+[node name="Brick16" parent="MainGame/Bricks/Row1" index="15" instance=ExtResource("2_weryf")]
+position = Vector2(504, 0)
+
+[node name="Row4" type="Node2D" parent="MainGame/Bricks" index="1"]
+position = Vector2(296, 152)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row4" index="0" instance=ExtResource("2_weryf")]
+
+[node name="Brick2" parent="MainGame/Bricks/Row4" index="1" instance=ExtResource("2_weryf")]
+position = Vector2(392, 0)
+
+[node name="Brick3" parent="MainGame/Bricks/Row4" index="2" instance=ExtResource("2_weryf")]
+position = Vector2(336, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row4" index="3" instance=ExtResource("2_weryf")]
+position = Vector2(280, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row4" index="4" instance=ExtResource("2_weryf")]
+position = Vector2(224, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row4" index="5" instance=ExtResource("2_weryf")]
+position = Vector2(168, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row4" index="6" instance=ExtResource("2_weryf")]
+position = Vector2(112, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row4" index="7" instance=ExtResource("2_weryf")]
+position = Vector2(56, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row4" index="8" instance=ExtResource("2_weryf")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row4" index="9" instance=ExtResource("2_weryf")]
+position = Vector2(840, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row4" index="10" instance=ExtResource("2_weryf")]
+position = Vector2(784, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row4" index="11" instance=ExtResource("2_weryf")]
+position = Vector2(728, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row4" index="12" instance=ExtResource("2_weryf")]
+position = Vector2(672, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row4" index="13" instance=ExtResource("2_weryf")]
+position = Vector2(616, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row4" index="14" instance=ExtResource("2_weryf")]
+position = Vector2(560, 0)
+
+[node name="Brick16" parent="MainGame/Bricks/Row4" index="15" instance=ExtResource("2_weryf")]
+position = Vector2(504, 0)
+
+[node name="Row7" type="Node2D" parent="MainGame/Bricks" index="2"]
+position = Vector2(296, 184)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row7" index="0" instance=ExtResource("2_weryf")]
+
+[node name="Brick2" parent="MainGame/Bricks/Row7" index="1" instance=ExtResource("2_weryf")]
+position = Vector2(392, 0)
+
+[node name="Brick3" parent="MainGame/Bricks/Row7" index="2" instance=ExtResource("2_weryf")]
+position = Vector2(336, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row7" index="3" instance=ExtResource("2_weryf")]
+position = Vector2(280, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row7" index="4" instance=ExtResource("2_weryf")]
+position = Vector2(224, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row7" index="5" instance=ExtResource("2_weryf")]
+position = Vector2(168, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row7" index="6" instance=ExtResource("2_weryf")]
+position = Vector2(112, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row7" index="7" instance=ExtResource("2_weryf")]
+position = Vector2(56, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row7" index="8" instance=ExtResource("2_weryf")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row7" index="9" instance=ExtResource("2_weryf")]
+position = Vector2(840, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row7" index="10" instance=ExtResource("2_weryf")]
+position = Vector2(784, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row7" index="11" instance=ExtResource("2_weryf")]
+position = Vector2(728, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row7" index="12" instance=ExtResource("2_weryf")]
+position = Vector2(672, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row7" index="13" instance=ExtResource("2_weryf")]
+position = Vector2(616, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row7" index="14" instance=ExtResource("2_weryf")]
+position = Vector2(560, 0)
+
+[node name="Brick16" parent="MainGame/Bricks/Row7" index="15" instance=ExtResource("2_weryf")]
+position = Vector2(504, 0)
+
+[node name="Row8" type="Node2D" parent="MainGame/Bricks" index="3"]
+position = Vector2(296, 280)
+metadata/_edit_group_ = true
+
+[node name="Brick" parent="MainGame/Bricks/Row8" index="0" instance=ExtResource("2_weryf")]
+
+[node name="Brick2" parent="MainGame/Bricks/Row8" index="1" instance=ExtResource("2_weryf")]
+position = Vector2(392, 0)
+
+[node name="Brick3" parent="MainGame/Bricks/Row8" index="2" instance=ExtResource("2_weryf")]
+position = Vector2(336, 0)
+
+[node name="Brick4" parent="MainGame/Bricks/Row8" index="3" instance=ExtResource("2_weryf")]
+position = Vector2(280, 0)
+
+[node name="Brick5" parent="MainGame/Bricks/Row8" index="4" instance=ExtResource("2_weryf")]
+position = Vector2(224, 0)
+
+[node name="Brick6" parent="MainGame/Bricks/Row8" index="5" instance=ExtResource("2_weryf")]
+position = Vector2(168, 0)
+
+[node name="Brick7" parent="MainGame/Bricks/Row8" index="6" instance=ExtResource("2_weryf")]
+position = Vector2(112, 0)
+
+[node name="Brick8" parent="MainGame/Bricks/Row8" index="7" instance=ExtResource("2_weryf")]
+position = Vector2(56, 0)
+
+[node name="Brick9" parent="MainGame/Bricks/Row8" index="8" instance=ExtResource("2_weryf")]
+position = Vector2(448, 0)
+
+[node name="Brick10" parent="MainGame/Bricks/Row8" index="9" instance=ExtResource("2_weryf")]
+position = Vector2(840, 0)
+
+[node name="Brick11" parent="MainGame/Bricks/Row8" index="10" instance=ExtResource("2_weryf")]
+position = Vector2(784, 0)
+
+[node name="Brick12" parent="MainGame/Bricks/Row8" index="11" instance=ExtResource("2_weryf")]
+position = Vector2(728, 0)
+
+[node name="Brick13" parent="MainGame/Bricks/Row8" index="12" instance=ExtResource("2_weryf")]
+position = Vector2(672, 0)
+
+[node name="Brick14" parent="MainGame/Bricks/Row8" index="13" instance=ExtResource("2_weryf")]
+position = Vector2(616, 0)
+
+[node name="Brick15" parent="MainGame/Bricks/Row8" index="14" instance=ExtResource("2_weryf")]
+position = Vector2(560, 0)
+
+[node name="Brick16" parent="MainGame/Bricks/Row8" index="15" instance=ExtResource("2_weryf")]
+position = Vector2(504, 0)
+
+[node name="Ball" parent="MainGame" index="5"]
+damage = 1
+
+[node name="Player" parent="MainGame" index="6"]
+speed = 400
+
+[node name="BGM" parent="MainGame" index="7"]
+stream = ExtResource("3_x3ybe")
+volume_db = -80.0
+
+[node name="UI" parent="." index="1"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true

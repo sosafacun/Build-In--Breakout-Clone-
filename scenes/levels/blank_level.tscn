@@ -25,14 +25,22 @@ metadata/_edit_lock_ = true
 
 [node name="MainGame" type="Node2D" parent="."]
 
-[node name="Sky" type="ColorRect" parent="MainGame"]
+[node name="Background" type="Node2D" parent="MainGame"]
+
+[node name="Sky" type="ColorRect" parent="MainGame/Background"]
 offset_left = 238.0
 offset_right = 1201.0
 offset_bottom = 720.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="ForeGround" type="Sprite2D" parent="MainGame"]
+[node name="Star" type="Node2D" parent="MainGame/Background"]
+
+[node name="StarSprite" type="Sprite2D" parent="MainGame/Background/Star"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainGame/Background/Star"]
+
+[node name="ForeGround" type="Sprite2D" parent="MainGame/Background"]
 position = Vector2(719, 369)
 scale = Vector2(0.801667, 1)
 texture = ExtResource("1_mslkq")
@@ -82,11 +90,17 @@ collision_mask = 5
 position = Vector2(961.5, 345.5)
 shape = SubResource("RectangleShape2D_xt21k")
 
+[node name="ExtraBalls" type="Node2D" parent="MainGame"]
+
 [node name="Ball" parent="MainGame" instance=ExtResource("2_pl4b4")]
 position = Vector2(729, 614)
+damage = 1
 
 [node name="Player" parent="MainGame" instance=ExtResource("4_i58h0")]
 position = Vector2(600, 651)
+speed = 350
+
+[node name="BGM" type="AudioStreamPlayer" parent="MainGame"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -191,4 +205,5 @@ position = Vector2(157, 69)
 scale = Vector2(0.084, 0.084)
 texture = ExtResource("5_0yhvw")
 
+[connection signal="level_finished" from="." to="." method="_on_level_finished"]
 [connection signal="body_entered" from="MainGame/Deathzone" to="." method="_on_deathzone_body_entered"]

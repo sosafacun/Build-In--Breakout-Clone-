@@ -43,7 +43,6 @@ func bounce(collider: Variant) -> void:
 	if(collider is Player):
 		velocity = pong_bounce(collider)
 		bounce_sprite("top-bot")
-		Music.player_hit()
 		return
 	else:
 		if(collider is Brick): 
@@ -60,7 +59,6 @@ func bounce(collider: Variant) -> void:
 		bounce_sprite("bot-top")
 			
 		velocity = velocity.bounce(collision_info.get_normal())
-		Music.wall_hit()
 
 func pong_bounce(collider: Variant) -> Vector2:
 	var distance: float = Globals.ball_position.x - collider.position.x

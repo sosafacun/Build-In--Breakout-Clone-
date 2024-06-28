@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8o1utekfytdi"]
+
+[ext_resource type="PackedScene" uid="uid://qmcsdi4rth6h" path="res://scenes/levels/blank_level.tscn" id="1_a6shx"]
+[ext_resource type="Texture2D" uid="uid://dc25fmved2xgp" path="res://scenes/levels/krita/exports/sun.png" id="2_lhem2"]
+[ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_8q6l0"]
+[ext_resource type="AudioStream" uid="uid://bi3xkm2flpbk" path="res://scenes/levels/level_2/BrunchTime.wav" id="4_ddpwe"]
+
+[sub_resource type="Animation" id="Animation_rx3ck"]
+resource_name = "run_ring"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r2h2j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yn3r6"]
+_data = {
+"RESET": SubResource("Animation_r2h2j"),
+"run_ring": SubResource("Animation_rx3ck")
+}
+
+[node name="Level2" instance=ExtResource("1_a6shx")]
+
+[node name="Sky" parent="MainGame/Background" index="0"]
+color = Color(0.4, 0.580392, 1, 1)
+
+[node name="Star" parent="MainGame/Background" index="1"]
+position = Vector2(1040, 152)
+metadata/_edit_group_ = true
+
+[node name="StarSprite" parent="MainGame/Background/Star" index="0"]
+texture = ExtResource("2_lhem2")
+metadata/_edit_lock_ = true
+
+[node name="Sun-ring" type="Sprite2D" parent="MainGame/Background/Star" index="1"]
+position = Vector2(9.25, -10.75)
+scale = Vector2(0.959893, 0.971698)
+texture = ExtResource("3_8q6l0")
+
+[node name="AnimationPlayer" parent="MainGame/Background/Star" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_yn3r6")
+}
+autoplay = "run_ring"
+
+[node name="BGM" parent="MainGame" index="7"]
+stream = ExtResource("4_ddpwe")
