@@ -1,4 +1,5 @@
 extends BlankLevel
+class_name Level
 
 func _on_level_finished() -> void:
 	Globals.is_game_active = false

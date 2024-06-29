@@ -37,6 +37,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Node2D" parent="MainGame"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Sky" type="ColorRect" parent="MainGame/Background"]
 offset_left = 238.0
@@ -64,12 +66,15 @@ metadata/_edit_lock_ = true
 [node name="Row1" type="Node2D" parent="MainGame/Bricks"]
 position = Vector2(304, 328)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Brick" parent="MainGame/Bricks/Row1" instance=ExtResource("3_0g0o2")]
 
+[node name="PowerUps" type="Node2D" parent="MainGame/Bricks"]
+
 [node name="Deathzone" type="Area2D" parent="MainGame"]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 20
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -313,4 +318,5 @@ scale = Vector2(0.084, 0.084)
 texture = ExtResource("5_0yhvw")
 
 [connection signal="level_finished" from="." to="." method="_on_level_finished"]
+[connection signal="area_entered" from="MainGame/Deathzone" to="." method="_on_deathzone_area_entered"]
 [connection signal="body_entered" from="MainGame/Deathzone" to="." method="_on_deathzone_body_entered"]

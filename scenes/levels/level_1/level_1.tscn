@@ -7,22 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cnww2qagsryo1" path="res://scenes/levels/krita/exports/sun-ring.png" id="3_drfeh"]
 [ext_resource type="AudioStream" uid="uid://bqkn3j7e8opob" path="res://scenes/levels/level_1/GoodMorning.wav" id="3_x3ybe"]
 
-[sub_resource type="Animation" id="Animation_x2c05"]
-resource_name = "ring"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sun-ring:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0.0, 0.785398, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_j2pal"]
 length = 0.001
 loop_mode = 1
@@ -39,6 +23,22 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_x2c05"]
+resource_name = "ring"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun-ring:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.785398, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qprbj"]
 _data = {
 "RESET": SubResource("Animation_j2pal"),
@@ -50,10 +50,6 @@ script = ExtResource("2_gavar")
 
 [node name="DirectionalLight2D" parent="." index="0"]
 color = Color(0.92549, 0.854902, 0, 1)
-
-[node name="Background" parent="MainGame" index="0"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="Sky" parent="MainGame/Background" index="0"]
 color = Color(0.549031, 0.581703, 0.999999, 1)

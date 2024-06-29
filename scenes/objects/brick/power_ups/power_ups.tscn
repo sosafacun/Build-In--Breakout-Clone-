@@ -1,3 +1,46 @@
-[gd_scene format=3 uid="uid://bhcmt2bjrp71h"]
+[gd_scene load_steps=7 format=3 uid="uid://bhcmt2bjrp71h"]
 
-[node name="PowerUps" type="Node2D"]
+[ext_resource type="Script" path="res://scenes/objects/brick/power_ups/power_ups.gd" id="1_clf56"]
+[ext_resource type="Texture2D" uid="uid://q2fvpt2fh0de" path="res://scenes/objects/brick/power_ups/extra_life.png" id="1_hf7qe"]
+[ext_resource type="Texture2D" uid="uid://xawh6gapyh2b" path="res://scenes/objects/brick/power_ups/longer_paddle.png" id="2_gduye"]
+[ext_resource type="Texture2D" uid="uid://dp2j32e1huq2b" path="res://scenes/objects/brick/power_ups/super_ball.png" id="3_gvjnb"]
+[ext_resource type="Texture2D" uid="uid://8625hr3wfjal" path="res://scenes/objects/brick/power_ups/triple_ball.png" id="4_afiqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3mg8"]
+size = Vector2(32, 32)
+
+[node name="PowerUps" type="Area2D" groups=["PowerUps"]]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_clf56")
+
+[node name="Powers" type="Node2D" parent="."]
+
+[node name="ExtraLife" type="Sprite2D" parent="Powers"]
+visible = false
+z_index = 1
+scale = Vector2(0.453571, 0.453571)
+texture = ExtResource("1_hf7qe")
+
+[node name="LongerPaddle" type="Sprite2D" parent="Powers"]
+visible = false
+z_index = 1
+scale = Vector2(0.453571, 0.453571)
+texture = ExtResource("2_gduye")
+
+[node name="SuperBall" type="Sprite2D" parent="Powers"]
+visible = false
+z_index = 1
+scale = Vector2(0.453571, 0.453571)
+texture = ExtResource("3_gvjnb")
+
+[node name="TripleBall" type="Sprite2D" parent="Powers"]
+visible = false
+z_index = 1
+scale = Vector2(0.453571, 0.453571)
+texture = ExtResource("4_afiqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k3mg8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,18 +1,21 @@
-extends StaticBody2D
-
-class_name Brick
+class_name Brick extends StaticBody2D
 
 @export var level: int = 1
+@export var ratio: int
 
-@onready var brick_sprite: Sprite2D = get_node("./BrickSprite")
+@onready var brick_sprite: Sprite2D = $BrickSprite
 @onready var value: int = level * 100
-@onready var hp_label: Label = get_node("./HPLabel")
+@onready var hp_label: Label = $HPLabel
+
+@onready var power_up_scene: PackedScene = preload("res://scenes/objects/brick/power_ups/power_ups.tscn")
+
+var has_surprise: bool
 
 signal broken_brick
 
 func _ready() -> void:
-	hp_label.visible = Globals.is_colorblind_enabled
 	change_color()
+	has_surprise = set_power_up()
 
 func change_color() -> void:
 	if(level == 1):
@@ -32,17 +35,18 @@ func hit(damage: int) -> void:
 	level -= damage
 	if(level <= 0):
 		Globals.player_score += value
-		broken_brick.emit()
+		broken_brick.emit(self)
 		queue_free()
 	else:
 		change_color()
 
 #Calls the _ready() function again to turn on/off the colorblind mode
 func colorblind_enabled() -> void:
-	_ready()
+	hp_label.visible = Globals.is_colorblind_enabled
+	change_color()
 
-func has_suprise() -> bool:
-	if(randi_range(1,20) % 20 == 0):
+func set_power_up() -> bool:
+	if(randi_range(1, 20) <= ratio):
 		return true
 	else:
 		return false

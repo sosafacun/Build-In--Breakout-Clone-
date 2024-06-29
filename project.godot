@@ -69,3 +69,4 @@ colorblind_test={
 2d_physics/layer_2="DeathZone"
 2d_physics/layer_3="Ball"
 2d_physics/layer_4="Limits"
+2d_physics/layer_5="PowerUps"

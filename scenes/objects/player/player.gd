@@ -1,8 +1,4 @@
-extends CharacterBody2D
-
-class_name Player
-
-const IS_PADDLE: bool = true
+class_name Player extends CharacterBody2D
 
 @export var speed: int
 
