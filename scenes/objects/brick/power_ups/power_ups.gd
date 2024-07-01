@@ -7,7 +7,8 @@ class_name PowerUp extends Area2D
 'super_ball', 
 'super_ball', 
 'triple_ball',
-'extra_life',]
+'extra_life'
+]
 
 
 @onready var area: Area2D = $"."

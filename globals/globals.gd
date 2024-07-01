@@ -9,6 +9,8 @@ var is_game_active: bool = false
 var is_colorblind_enabled: bool = false
 
 #to track stats and possible changes
+var ball_damage: int
+var ball_amount: int
 var ball_position: Vector2
 var player_position: Vector2
 var player_lives: int:

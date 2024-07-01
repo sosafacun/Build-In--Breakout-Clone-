@@ -249,10 +249,10 @@ position = Vector2(128, 0)
 [node name="Brick14" parent="MainGame/Bricks/Row4" index="13" instance=ExtResource("2_weryf")]
 position = Vector2(64, 0)
 
-[node name="Player" parent="MainGame" index="6"]
+[node name="Player" parent="MainGame" index="5"]
 speed = 400
 
-[node name="BGM" parent="MainGame" index="7"]
+[node name="BGM" parent="MainGame" index="6"]
 stream = ExtResource("3_x3ybe")
 
 [node name="Label" parent="UI/HighScore" index="0"]

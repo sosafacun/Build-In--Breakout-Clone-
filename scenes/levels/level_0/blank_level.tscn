@@ -110,12 +110,13 @@ collision_mask = 5
 position = Vector2(961.5, 345.5)
 shape = SubResource("RectangleShape2D_xt21k")
 
-[node name="ExtraBalls" type="Node2D" parent="MainGame"]
+[node name="Balls" type="Node2D" parent="MainGame"]
 metadata/_edit_lock_ = true
 
-[node name="Ball" parent="MainGame" instance=ExtResource("2_pl4b4")]
+[node name="Ball" parent="MainGame/Balls" instance=ExtResource("2_pl4b4")]
 position = Vector2(729, 614)
 damage = 1
+is_main_ball = true
 
 [node name="Player" parent="MainGame" instance=ExtResource("4_i58h0")]
 position = Vector2(728, 648)
@@ -318,5 +319,6 @@ scale = Vector2(0.084, 0.084)
 texture = ExtResource("5_0yhvw")
 
 [connection signal="level_finished" from="." to="." method="_on_level_finished"]
+[connection signal="life_lost" from="." to="." method="_on_life_lost"]
 [connection signal="area_entered" from="MainGame/Deathzone" to="." method="_on_deathzone_area_entered"]
 [connection signal="body_entered" from="MainGame/Deathzone" to="." method="_on_deathzone_body_entered"]

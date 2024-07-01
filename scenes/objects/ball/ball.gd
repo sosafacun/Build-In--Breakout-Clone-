@@ -4,6 +4,7 @@ class_name Ball
 
 @export var speed: float
 @export var damage: int
+@export var is_main_ball: bool = false
 var start_speed: float = 15
 var collision_info : KinematicCollision2D
 
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 		Globals.is_game_active = true
 		set_starting_velocity()
 	
+	if(is_main_ball):
+		normal_ball.modulate = Color('000000')
+	
 	collision_info = move_and_collide(velocity * speed * delta)
 	Globals.ball_position = position
 	
@@ -31,13 +35,15 @@ func _physics_process(delta: float) -> void:
 func set_starting_velocity() -> void:
 	
 	if(randi() % 2 == 0):
-		velocity.x = 1
+		velocity.x = randf_range(0.6,1.0)
 	else:
-		velocity.x = -1
+		velocity.x = randf_range(-0.6,-1.0)
 	
 	velocity.y = -1
 	speed = start_speed
 	velocity *= speed
+	damage = 1
+	Globals.ball_damage = damage
 
 func bounce(collider: Variant) -> void:
 	if(collider is Player):
