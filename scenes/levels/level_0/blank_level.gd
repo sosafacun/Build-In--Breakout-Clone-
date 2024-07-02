@@ -35,6 +35,9 @@ func _ready() -> void:
 	update_life_sprites()
 
 func _on_player_collects_power_up(pu: PowerUp) -> void:
+	call_deferred("_deferred_power_up", pu)
+
+func _deferred_power_up(pu: PowerUp) -> void:
 	var pu_effects: PowerUpEffects = PowerUpEffects.new(pu)
 	
 	#Makes the player and their hitbox larger

@@ -10,7 +10,7 @@ size = Vector2(48, 10)
 
 [node name="Brick" type="StaticBody2D" groups=["Bricks"]]
 script = ExtResource("1_2hncm")
-ratio = 1
+ratio = 20
 
 [node name="BrickSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ubmrg")

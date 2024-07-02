@@ -1,13 +1,10 @@
 class_name PowerUp extends Area2D
 
 @export var available_options: Array[String] = [
-'longer_paddle', 
-'longer_paddle', 
-'longer_paddle', 
-'super_ball', 
-'super_ball', 
+#'longer_paddle', 
+#'super_ball', 
 'triple_ball',
-'extra_life'
+#'extra_life'
 ]
 
 

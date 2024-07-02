@@ -6,3 +6,4 @@ class_name SFX
 @onready var wh_player: AudioStreamPlayer = $WallHit
 @onready var l_player: AudioStreamPlayer = $Loss
 @onready var al_player: AudioStreamPlayer = $AfterLoss
+
